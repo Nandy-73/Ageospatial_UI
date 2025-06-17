@@ -3,84 +3,161 @@ import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen bg-slate-900 text-white pt-20 flex items-center relative overflow-hidden">
-      {/* Network Pattern Background */}
-      <div className="absolute inset-0 opacity-20">
-        <svg 
-          className="w-full h-full" 
-          viewBox="0 0 1200 800" 
-          fill="none" 
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          {/* Network nodes */}
-          <circle cx="100" cy="150" r="3" fill="white" />
-          <circle cx="300" cy="100" r="3" fill="white" />
-          <circle cx="500" cy="200" r="3" fill="white" />
-          <circle cx="700" cy="120" r="3" fill="white" />
-          <circle cx="900" cy="180" r="3" fill="white" />
-          <circle cx="1100" cy="140" r="3" fill="white" />
-          <circle cx="200" cy="300" r="3" fill="white" />
-          <circle cx="400" cy="350" r="3" fill="white" />
-          <circle cx="600" cy="280" r="3" fill="white" />
-          <circle cx="800" cy="320" r="3" fill="white" />
-          <circle cx="1000" cy="380" r="3" fill="white" />
-          <circle cx="150" cy="500" r="3" fill="white" />
-          <circle cx="350" cy="550" r="3" fill="white" />
-          <circle cx="550" cy="480" r="3" fill="white" />
-          <circle cx="750" cy="520" r="3" fill="white" />
-          <circle cx="950" cy="580" r="3" fill="white" />
-          <circle cx="250" cy="650" r="3" fill="white" />
-          <circle cx="450" cy="700" r="3" fill="white" />
-          <circle cx="650" cy="630" r="3" fill="white" />
-          <circle cx="850" cy="680" r="3" fill="white" />
+    <section id="home" className="min-h-screen bg-black text-white pt-20 flex items-center relative overflow-hidden">
+      {/* Animated Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute w-full h-full">
+          {/* Moving dots animation */}
+          {[...Array(20)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-1 h-1 bg-red-500 rounded-full animate-pulse"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 3}s`,
+                animationDuration: `${2 + Math.random() * 2}s`
+              }}
+            />
+          ))}
           
-          {/* Connection lines */}
-          <line x1="100" y1="150" x2="300" y2="100" stroke="white" strokeWidth="1" opacity="0.3" />
-          <line x1="300" y1="100" x2="500" y2="200" stroke="white" strokeWidth="1" opacity="0.3" />
-          <line x1="500" y1="200" x2="700" y2="120" stroke="white" strokeWidth="1" opacity="0.3" />
-          <line x1="700" y1="120" x2="900" y2="180" stroke="white" strokeWidth="1" opacity="0.3" />
-          <line x1="900" y1="180" x2="1100" y2="140" stroke="white" strokeWidth="1" opacity="0.3" />
-          <line x1="200" y1="300" x2="400" y2="350" stroke="white" strokeWidth="1" opacity="0.3" />
-          <line x1="400" y1="350" x2="600" y2="280" stroke="white" strokeWidth="1" opacity="0.3" />
-          <line x1="600" y1="280" x2="800" y2="320" stroke="white" strokeWidth="1" opacity="0.3" />
-          <line x1="800" y1="320" x2="1000" y2="380" stroke="white" strokeWidth="1" opacity="0.3" />
-          <line x1="150" y1="500" x2="350" y2="550" stroke="white" strokeWidth="1" opacity="0.3" />
-          <line x1="350" y1="550" x2="550" y2="480" stroke="white" strokeWidth="1" opacity="0.3" />
-          <line x1="550" y1="480" x2="750" y2="520" stroke="white" strokeWidth="1" opacity="0.3" />
-          <line x1="750" y1="520" x2="950" y2="580" stroke="white" strokeWidth="1" opacity="0.3" />
-          <line x1="250" y1="650" x2="450" y2="700" stroke="white" strokeWidth="1" opacity="0.3" />
-          <line x1="450" y1="700" x2="650" y2="630" stroke="white" strokeWidth="1" opacity="0.3" />
-          <line x1="650" y1="630" x2="850" y2="680" stroke="white" strokeWidth="1" opacity="0.3" />
-          
-          {/* Vertical connections */}
-          <line x1="100" y1="150" x2="200" y2="300" stroke="white" strokeWidth="1" opacity="0.3" />
-          <line x1="300" y1="100" x2="400" y2="350" stroke="white" strokeWidth="1" opacity="0.3" />
-          <line x1="500" y1="200" x2="600" y2="280" stroke="white" strokeWidth="1" opacity="0.3" />
-          <line x1="700" y1="120" x2="800" y2="320" stroke="white" strokeWidth="1" opacity="0.3" />
-          <line x1="200" y1="300" x2="150" y2="500" stroke="white" strokeWidth="1" opacity="0.3" />
-          <line x1="400" y1="350" x2="350" y2="550" stroke="white" strokeWidth="1" opacity="0.3" />
-          <line x1="600" y1="280" x2="550" y2="480" stroke="white" strokeWidth="1" opacity="0.3" />
-          <line x1="800" y1="320" x2="750" y2="520" stroke="white" strokeWidth="1" opacity="0.3" />
-          <line x1="350" y1="550" x2="250" y2="650" stroke="white" strokeWidth="1" opacity="0.3" />
-          <line x1="550" y1="480" x2="450" y2="700" stroke="white" strokeWidth="1" opacity="0.3" />
-          <line x1="750" y1="520" x2="650" y2="630" stroke="white" strokeWidth="1" opacity="0.3" />
-          <line x1="950" y1="580" x2="850" y2="680" stroke="white" strokeWidth="1" opacity="0.3" />
-        </svg>
+          {/* Network lines */}
+          <svg className="w-full h-full absolute inset-0" viewBox="0 0 1200 800">
+            <defs>
+              <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="rgba(239, 68, 68, 0.1)" />
+                <stop offset="50%" stopColor="rgba(239, 68, 68, 0.3)" />
+                <stop offset="100%" stopColor="rgba(239, 68, 68, 0.1)" />
+              </linearGradient>
+            </defs>
+            
+            {/* Animated connecting lines */}
+            <line x1="100" y1="150" x2="300" y2="100" stroke="url(#lineGradient)" strokeWidth="1">
+              <animate attributeName="opacity" values="0.2;0.8;0.2" dur="3s" repeatCount="indefinite" />
+            </line>
+            <line x1="300" y1="100" x2="500" y2="200" stroke="url(#lineGradient)" strokeWidth="1">
+              <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.5s" repeatCount="indefinite" />
+            </line>
+            <line x1="500" y1="200" x2="700" y2="120" stroke="url(#lineGradient)" strokeWidth="1">
+              <animate attributeName="opacity" values="0.3;0.9;0.3" dur="4s" repeatCount="indefinite" />
+            </line>
+            <line x1="700" y1="120" x2="900" y2="180" stroke="url(#lineGradient)" strokeWidth="1">
+              <animate attributeName="opacity" values="0.1;0.7;0.1" dur="3.5s" repeatCount="indefinite" />
+            </line>
+          </svg>
+        </div>
       </div>
 
       <div className="container mx-auto px-4 py-20 relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-5xl lg:text-7xl font-bold leading-tight mb-8">
-            Accessible location
-            <br />
-            intelligence for informed
-            <br />
-            decisions
-          </h1>
-          
+        <div className="text-center max-w-6xl mx-auto">
+          {/* Header with logo style */}
+          <div className="mb-8">
+            <h1 className="text-6xl lg:text-8xl font-bold mb-4">
+              Geo<span className="text-red-500">forge</span>
+              <span className="text-red-500 text-4xl align-top">+</span>
+            </h1>
+            <p className="text-xl text-gray-300 mb-8">
+              <span className="text-red-500 font-semibold">AI Agent</span> web platform that enriches your data with geospatial<br />
+              insights, anywhere, in seconds to <span className="text-red-500 font-semibold">support your decisions</span>
+            </p>
+          </div>
+
+          {/* Features Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <div className="text-left">
+              <div className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
+                  <div className="w-3 h-3 bg-black rounded-full"></div>
+                </div>
+              </div>
+              <h3 className="text-red-500 font-semibold mb-2">No expertise required</h3>
+              <p className="text-gray-400 text-sm">
+                You don't need to be a pro, AI agents handle geodata discovery, 
+                processing, and fusion
+              </p>
+            </div>
+
+            <div className="text-left">
+              <div className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mb-4">
+                <span className="text-green-500 text-xl font-bold">$</span>
+              </div>
+              <h3 className="text-red-500 font-semibold mb-2">Lower cost</h3>
+              <p className="text-gray-400 text-sm">
+                Save money and manual work than with our platform
+              </p>
+            </div>
+
+            <div className="text-left">
+              <div className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-6 h-6 bg-white rounded-full relative">
+                  <div className="absolute inset-1 bg-black rounded-full">
+                    <div className="absolute inset-1 bg-white rounded-full animate-pulse"></div>
+                  </div>
+                </div>
+              </div>
+              <h3 className="text-red-500 font-semibold mb-2">Increase speed</h3>
+              <p className="text-gray-400 text-sm">
+                Go from idea to insight in under minutes instead of hours or days spent 
+                on searching for the right data, processing it and measuring it on a map
+              </p>
+            </div>
+
+            <div className="text-left">
+              <div className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-6 h-6 bg-gray-600 rounded flex items-center justify-center">
+                  <div className="w-4 h-0.5 bg-white"></div>
+                </div>
+              </div>
+              <h3 className="text-red-500 font-semibold mb-2">Enrich context</h3>
+              <p className="text-gray-400 text-sm">
+                Fuse your data with external, validated, and local thematic, 
+                socioeconomic, imagery and near-time data from the web
+              </p>
+            </div>
+          </div>
+
+          {/* Demo Image Placeholder */}
+          <div className="mb-12 relative">
+            <div className="bg-gray-900 rounded-lg p-8 border border-gray-800 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-red-500/5 to-transparent"></div>
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div className="bg-gray-800 rounded-lg p-4 h-64 flex items-center justify-center relative">
+                  <div className="text-gray-500">Interactive Map Demo</div>
+                  <div className="absolute top-2 left-2 w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                  <div className="absolute bottom-2 right-2 w-2 h-2 bg-green-500 rounded-full"></div>
+                </div>
+                <div className="text-left space-y-4">
+                  <div className="bg-red-600 text-white px-4 py-2 rounded inline-block text-sm">
+                    DETECTED: FLOOD
+                  </div>
+                  <p className="text-gray-300">
+                    I realized my community suffered a recent 5 floor is level 
+                    in vulnerability where those about at 2 homes being 
+                    emergency and may be hit...
+                  </p>
+                  <div className="bg-red-600 text-white px-4 py-2 rounded inline-block text-sm">
+                    GET STARTED: GO
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Trust Section */}
+          <div className="mb-12">
+            <p className="text-gray-400 mb-8">
+              Trusted by <span className="text-red-500 font-semibold">decision makers</span> in
+            </p>
+            <div className="bg-white text-black px-6 py-2 rounded inline-block">
+              Public safety
+            </div>
+          </div>
+
+          {/* CTA Button */}
           <div className="mt-12">
-            <button className="bg-white text-slate-900 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 text-lg">
+            <button className="bg-white text-black px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 text-lg inline-flex items-center">
               Join the waitlist
+              <ArrowRight className="ml-2" size={20} />
             </button>
           </div>
         </div>
